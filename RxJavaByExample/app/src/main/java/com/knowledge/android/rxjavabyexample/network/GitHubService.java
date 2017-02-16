@@ -9,7 +9,7 @@ import retrofit2.http.Path;
 import rx.Observable;
 
 /**
- * Created by M1034567 on 2/15/2017.
+ * Created by Nandagopal on 2/15/2017.
  * <p>
  * We will pass this interface into Retrofit and Retrofit will create an implementation of GitHubService.
  */

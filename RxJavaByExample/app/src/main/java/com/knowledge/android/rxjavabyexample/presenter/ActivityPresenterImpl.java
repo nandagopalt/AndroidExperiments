@@ -14,7 +14,7 @@ import rx.functions.Func1;
 import rx.schedulers.Schedulers;
 
 /**
- * Created by M1034567 on 2/15/2017.
+ * Created by Nandagopal on 2/15/2017.
  */
 
 public class ActivityPresenterImpl implements ActivityPresenterView {

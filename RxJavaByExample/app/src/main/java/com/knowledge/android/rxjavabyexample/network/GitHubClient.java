@@ -10,7 +10,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import rx.Observable;
 
 /**
- * Created by M1034567 on 2/15/2017.
+ * Created by Nandagopal on 2/15/2017.
  * <p>
  * This will be the object we will interact with to make network calls from the UI level
  */

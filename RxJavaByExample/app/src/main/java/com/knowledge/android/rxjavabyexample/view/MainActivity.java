@@ -32,19 +32,19 @@ public class MainActivity extends AppCompatActivity implements ActivityOperation
 
     @Nullable
     @BindView(R.id.txt_name)
-    private TextView mTextViewName;
+    TextView mTextViewName;
 
     @Nullable
     @BindView(R.id.edt_username)
-    private EditText mGitUserName;
+    EditText mGitUserName;
 
     @Nullable
     @BindView(R.id.btn_hitbutton)
-    private Button mHitGitService;
+    Button mHitGitService;
 
     @Nullable
     @BindString(R.string.app_name)
-    private String mRepoNames = "";
+    String mRepoNames = "";
 
     @Override
     public void showProgressDialog() {

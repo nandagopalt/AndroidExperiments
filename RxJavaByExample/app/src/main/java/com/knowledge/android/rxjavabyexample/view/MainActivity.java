@@ -12,9 +12,8 @@ import android.widget.TextView;
 
 import com.knowledge.android.rxjavabyexample.R;
 import com.knowledge.android.rxjavabyexample.model.GitHubRepo;
-import com.knowledge.android.rxjavabyexample.presenter.ActivityOperationsView;
-import com.knowledge.android.rxjavabyexample.presenter.ActivityPresenterImpl;
-import com.knowledge.android.rxjavabyexample.presenter.ActivityPresenterView;
+import com.knowledge.android.rxjavabyexample.presenter.MainScreenActivityContract;
+import com.knowledge.android.rxjavabyexample.presenter.MainScreenActivityPresenterImpl;
 
 import java.util.List;
 
@@ -25,7 +24,7 @@ import butterknife.OnClick;
 import butterknife.Optional;
 import rx.Subscription;
 
-public class MainActivity extends AppCompatActivity implements ActivityOperationsView {
+public class MainActivity extends AppCompatActivity implements MainScreenActivityContract.MainScreenActivityOperationsView {
     private Subscription mSubcription;
     private static final String TAG = MainActivity.class.getSimpleName();
     private ProgressDialog mProgressDialog;
@@ -44,7 +43,7 @@ public class MainActivity extends AppCompatActivity implements ActivityOperation
 
     @Nullable
     @BindString(R.string.app_name)
-    String mRepoNames = "";
+    String mRepoNames;
 
     @Override
     public void showProgressDialog() {
@@ -56,7 +55,7 @@ public class MainActivity extends AppCompatActivity implements ActivityOperation
         mProgressDialog.hide();
     }
 
-    private ActivityPresenterView mPresenterView;
+    private MainScreenActivityContract.MainScreenActivityPresenterView mPresenterView;
 
 
     @Override
@@ -65,7 +64,7 @@ public class MainActivity extends AppCompatActivity implements ActivityOperation
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
         //mTextViewName = (TextView) findViewById(R.id.name);
-        mPresenterView = new ActivityPresenterImpl(this);
+        new MainScreenActivityPresenterImpl(this);
     }
 
     @Optional
@@ -89,5 +88,23 @@ public class MainActivity extends AppCompatActivity implements ActivityOperation
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        if (null != mPresenterView.getSubscription() && mPresenterView.getSubscription().isUnsubscribed()) {
+            mPresenterView.unSubscribe();
+        }
     }
+
+    @Override
+    public void setPresenter(MainScreenActivityContract.MainScreenActivityPresenterView presenter) {
+        mPresenterView = presenter;
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if (null != mPresenterView.getSubscription() && mPresenterView.getSubscription().isUnsubscribed()) {
+            mPresenterView.unSubscribe();
+        }
+    }
+
+
 }

@@ -1,11 +1,11 @@
 package com.knowledge.android.rxjavabyexample;
 
 /**
- * Created by Nandagopal on 2/15/2017.
+ * Created by NandagopalT on 2/17/2017.
+ * <p>
+ * BaseView that will be implemented by all the views
  */
 
-public interface BaseView {
-    void loadProgress();
-
-    void hideProgress();
+public interface BaseView<T> {
+    void setPresenter(T presenter);
 }

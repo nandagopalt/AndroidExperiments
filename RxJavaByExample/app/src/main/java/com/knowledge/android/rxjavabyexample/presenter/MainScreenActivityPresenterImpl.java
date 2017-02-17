@@ -17,13 +17,14 @@ import rx.schedulers.Schedulers;
  * Created by Nandagopal on 2/15/2017.
  */
 
-public class ActivityPresenterImpl implements ActivityPresenterView {
-    private static final String TAG = ActivityPresenterImpl.class.getSimpleName();
-    private ActivityOperationsView mOperations;
+public class MainScreenActivityPresenterImpl implements MainScreenActivityContract.MainScreenActivityPresenterView {
+    private static final String TAG = MainScreenActivityPresenterImpl.class.getSimpleName();
+    private MainScreenActivityContract.MainScreenActivityOperationsView mOperations;
     private Subscription mSubcription;
 
-    public ActivityPresenterImpl(ActivityOperationsView activity) {
+    public MainScreenActivityPresenterImpl(MainScreenActivityContract.MainScreenActivityOperationsView activity) {
         mOperations = activity;
+        mOperations.setPresenter(this);
     }
 
     public void fetchStarredProjects(String username) {
@@ -58,4 +59,18 @@ public class ActivityPresenterImpl implements ActivityPresenterView {
                 });
     }
 
+    @Override
+    public void foo() {
+
+    }
+
+    @Override
+    public void unSubscribe() {
+        mSubcription.unsubscribe();
+    }
+
+    @Override
+    public Subscription getSubscription() {
+        return mSubcription != null ? mSubcription : null;
+    }
 }

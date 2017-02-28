@@ -1,2 +1,2 @@
-# RxJava-AndroidExperiments
-This Repo contains all the experiments done on RxJava with Android 
+# AndroidExperiments
+This Repo contains all the experiments done on Android 

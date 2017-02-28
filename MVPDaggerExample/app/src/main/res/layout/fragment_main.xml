@@ -1,0 +1,36 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.activities.fragments.MainFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="Welcome to Fragment 1"
+        android:textAlignment="center"
+        android:textAppearance="?android:textAppearanceMedium" />
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Next Fragment 2" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/child_fragment_container"
+        >
+
+       <!-- <fragment
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            class="com.knowledge.android.mvpdaggerexample.ChildFragment"></fragment>-->
+
+    </FrameLayout>
+
+
+</FrameLayout>

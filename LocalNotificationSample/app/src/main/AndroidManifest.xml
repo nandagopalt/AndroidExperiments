@@ -12,7 +12,8 @@
         <activity
             android:name=".LaunchActivity"
             android:windowSoftInputMode="adjustResize"
-            android:launchMode="singleInstance">
+            android:launchMode="singleInstance"
+            android:parentActivityName=".LaunchActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -1,7 +1,7 @@
 package com.android.knowledge.threadswithservicesexample;
 
 /**
- * Created by Nadagopal T on 3/15/2017.
+ * Created by Nandagopal T on 3/15/2017.
  */
 
 public class Playlist {

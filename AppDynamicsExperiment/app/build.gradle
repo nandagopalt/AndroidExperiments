@@ -1,0 +1,46 @@
+apply plugin: 'com.android.application'
+apply plugin: 'adeum' // this line added for AppDynamics
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.3"
+    defaultConfig {
+        applicationId "com.android.knowledge.appdynamicsexperiment"
+        minSdkVersion 19
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
+        }
+    }
+
+
+    dependencies {
+        compile fileTree(dir: 'libs', include: ['*.jar'])
+        androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+            exclude group: 'com.android.support', module: 'support-annotations'
+        })
+        compile 'com.android.support:appcompat-v7:25.3.1'
+        compile 'com.android.support.constraint:constraint-layout:1.0.2'
+        testCompile 'junit:junit:4.12'
+
+    }
+
+    adeum { // this section added for AppDynamics
+        account {
+            name '332604-ss-MindtreeLtd-mxqub1o6e7gq'
+            licenseKey 'f00b620b-024d-4c7c-9c47-2868c542d92e'
+        }
+
+        proguardMappingFileUpload {
+            failBuildOnUploadFailure true //should build fail if upload fails? Defaults to false.
+            enabled true //enables automatic uploads. Defaults to true.
+        }
+    }
+}

@@ -1,5 +1,6 @@
 *.iml
 .gradle
+gradlew
 /local.properties
 /.idea/workspace.xml
 /.idea/libraries
@@ -43,3 +44,5 @@ captures/
 
 # Project specific compilation files
 */.idea/
+
+build.gradle
